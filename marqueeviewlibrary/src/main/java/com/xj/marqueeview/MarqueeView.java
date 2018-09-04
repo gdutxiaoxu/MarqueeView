@@ -216,7 +216,6 @@ public class MarqueeView extends FrameLayout {
             layoutParams.gravity = mGravity;
             addView(itemView, layoutParams);
             mViews.put(type, itemView);
-
             // 设置当前 itemView 可见，其他不可见
             if (type == curItemViewType) {
                 itemView.setVisibility(View.VISIBLE);
