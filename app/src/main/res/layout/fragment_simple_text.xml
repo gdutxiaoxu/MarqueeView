@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".SimpleTextActivity">
+
+    <com.xj.marqueeview.MarqueeView
+        android:id="@+id/mv_simple_text"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mv_simple_text_height"
+        android:background="@mipmap/bg">
+
+    </com.xj.marqueeview.MarqueeView>
+
+
+    <com.xj.marqueeview.MarqueeView
+        android:id="@+id/mv_simple_text2"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mv_simple_text_height"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/bg"
+        app:mvAnimDuration="500"
+        app:mvDirection="right_to_left"
+        app:mvInterval="3000">
+
+    </com.xj.marqueeview.MarqueeView>
+
+
+    <com.xj.marqueeview.MarqueeView
+        android:id="@+id/mv_simple_text3"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mv_simple_text_height"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/bg"
+        app:mvAnimDuration="500"
+        app:mvDirection="left_to_right"
+        app:mvInterval="3000">
+
+    </com.xj.marqueeview.MarqueeView>
+
+    <com.xj.marqueeview.MarqueeView
+        android:id="@+id/mv_simple_text4"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mv_simple_text_height"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/bg"
+        app:mvAnimDuration="500"
+        app:mvDirection="left_to_right"
+        app:mvInterval="3000">
+
+    </com.xj.marqueeview.MarqueeView>
+
+    <com.xj.marqueeview.MarqueeView
+        android:id="@+id/mv_simple_text5"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/mv_simple_text_height"
+        android:layout_marginTop="10dp"
+        android:background="@mipmap/bg"
+        app:mvAnimDuration="500"
+        app:mvDirection="left_to_right"
+        app:mvInterval="3000">
+
+    </com.xj.marqueeview.MarqueeView>
+
+</LinearLayout>

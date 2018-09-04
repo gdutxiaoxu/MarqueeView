@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item type="id" name="key_viewholder"></item>
+    <item type="id" name="key_marquee_view_item_type"></item>
+</resources>

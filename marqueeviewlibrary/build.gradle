@@ -1,0 +1,86 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'//添加
+
+android {
+    compileSdkVersion 27
+
+    compileOptions {
+
+        encoding "UTF-8"
+
+    }
+
+    defaultConfig {
+        minSdkVersion 15
+        targetSdkVersion 27
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    implementation 'com.android.support:appcompat-v7:27.1.1'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+}
+
+//生成源文件
+task sourcesJar(type: Jar) {
+    from android.sourceSets.main.java.srcDirs
+    classifier = 'sources'
+}
+
+//生成Javadoc文档
+task javadoc(type: Javadoc) {
+    source = android.sourceSets.main.java.srcDirs
+    classpath += project.files(android.getBootClasspath().join(File.pathSeparator))
+}
+
+//文档打包成jar
+task javadocJar(type: Jar, dependsOn: javadoc) {
+    classifier = 'javadoc'
+    from javadoc.destinationDir
+}
+
+//拷贝javadoc文件
+task copyDoc(type: Copy) {
+    from "${buildDir}/docs/"
+    into "docs"
+}
+
+//上传到JCenter所需要的源码文件
+artifacts {
+    archives javadocJar
+    archives sourcesJar
+}
+
+//解决 JavaDoc 中文注释生成失败的问题
+tasks.withType(Javadoc) {
+    options.addStringOption('Xdoclint:none', '-quiet')
+    options.addStringOption('encoding', 'UTF-8')
+    options.addStringOption('charSet', 'UTF-8')
+}
+
+//发布到 Bintray
+publish {
+    userOrg = 'xujun94'           //bintray.com 注册的用户名
+    groupId = 'com.xj.marqueeView'   //以后访问 jcenter上此项目的路径，一般和库项目的包名一致
+    artifactId = 'marqueeView'       //bintray.com 创建的 Package 名
+    publishVersion = '0.0.11'         //版本号
+    desc = '第一个版本发布' //版本说明，随意
+    website = 'https://github.com/gdutxiaoxu/marqueeView'    //关于这个开源项目的网站，随意
+}

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="mv_simple_text_height">60dp</dimen>
+    <dimen name="mv_image_text_height">80dp</dimen>
+    <dimen name="mv_multi_text_height">100dp</dimen>
+    <dimen name="mv_all_type_height">70dp</dimen>
+</resources>
