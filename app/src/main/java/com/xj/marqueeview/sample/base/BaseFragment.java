@@ -51,13 +51,13 @@ public abstract class BaseFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable
             Bundle savedInstanceState) {
         Log.i(TAG, "onCreateView: mSimpleName = " + getSimpleName());
-        if (mView == null) {
+        if(mView == null){
             mView = View.inflate(mContext, getContentViewLayoutID(), null);
             initView(mView);
-
-        } else {
+        }else{
             ViewUtils.removeParent(mView);
         }
+
         mIsViewInitiated = true;
         mIsDataInitiated = false;
         return mView;
@@ -96,6 +96,7 @@ public abstract class BaseFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         mIsViewInitiated = false;
+        Log.i(TAG, "onDestroyView: mSimpleName = " + getSimpleName());
     }
 
     protected void initData() {

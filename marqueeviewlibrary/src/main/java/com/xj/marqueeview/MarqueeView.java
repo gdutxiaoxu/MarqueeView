@@ -147,6 +147,7 @@ public class MarqueeView extends FrameLayout {
         if (multiItemTypeAdapter == null) {
             return;
         }
+        removeAllViews();
         mMultiItemTypeAdapter = multiItemTypeAdapter;
         postStart(mInAnimResId, mOutAnimResId);
     }
@@ -198,8 +199,7 @@ public class MarqueeView extends FrameLayout {
         }
         mViews.clear();
         int curItemViewType = mMultiItemTypeAdapter.getItemViewType(mPosition);
-        SparseArrayCompat<ItemViewDelegate> itemViewDelegate = mMultiItemTypeAdapter
-                .getItemViewDelegate();
+        SparseArrayCompat<ItemViewDelegate> itemViewDelegate = mMultiItemTypeAdapter.getItemViewDelegate();
         int size = itemViewDelegate.size();
         for (int i = 0; i < size; i++) {
             ItemViewDelegate delegate = itemViewDelegate.valueAt(i);

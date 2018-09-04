@@ -29,11 +29,13 @@ public class MultiTextFragment extends BaseFragment {
 
     @Override
     protected void initView(View view) {
-        mMvMultiText = (MarqueeView) view.findViewById(R.id.mv_multi_text);
-        mMvMultiText2 = (MarqueeView) view.findViewById(R.id.mv_multi_text2);
-        mMvMultiText3 = (MarqueeView) view.findViewById(R.id.mv_multi_text3);
-        mMvMultiText4 = (MarqueeView) view.findViewById(R.id.mv_multi_text4);
-        mMvMultiText5 = (MarqueeView) view.findViewById(R.id.mv_multi_text5);
+        mMvMultiText = view.findViewById(R.id.mv_multi_text);
+        mMvMultiText2 = view.findViewById(R.id.mv_multi_text2);
+        mMvMultiText3 = view.findViewById(R.id.mv_multi_text3);
+        mMvMultiText4 = view.findViewById(R.id.mv_multi_text4);
+        mMvMultiText5 = view.findViewById(R.id.mv_multi_text5);
+
+
     }
 
     @Override
@@ -135,5 +137,13 @@ public class MultiTextFragment extends BaseFragment {
         marqueeView.setAdapter(multiItemTypeAdapter);
     }
 
-
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        mMvMultiText.removeAllViews();
+        mMvMultiText2.removeAllViews();
+        mMvMultiText3.removeAllViews();
+        mMvMultiText4.removeAllViews();
+        mMvMultiText5.removeAllViews();
+    }
 }
