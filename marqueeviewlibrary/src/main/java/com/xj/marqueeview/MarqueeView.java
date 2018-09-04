@@ -147,9 +147,9 @@ public class MarqueeView extends FrameLayout {
         if (multiItemTypeAdapter == null) {
             return;
         }
-        removeAllViews();
         mMultiItemTypeAdapter = multiItemTypeAdapter;
-        postStart(mInAnimResId, mOutAnimResId);
+//        postStart(mInAnimResId, mOutAnimResId);
+        start(mInAnimResId, mOutAnimResId);
     }
 
     private void postStart(final @AnimRes int inAnimResId, final @AnimRes int outAnimResID) {
@@ -162,17 +162,22 @@ public class MarqueeView extends FrameLayout {
     }
 
     private void start(final @AnimRes int inAnimResId, final @AnimRes int outAnimResID) {
-        removeAllViews();
-        clearAnimation();
-        addAllTypeView();
         mPosition = 0;
+        clearAnimation();
+        removeAllViews();
+        addAllTypeView();
         int itemViewType = mMultiItemTypeAdapter.getItemViewType(mPosition);
         View convertView = mViews.get(itemViewType);
-        View itemView = mMultiItemTypeAdapter.createItemView(mPosition, convertView, MarqueeView
-                .this);
+        View itemView = mMultiItemTypeAdapter.createItemView(mPosition, convertView, MarqueeView.this);
         mCurView = itemView;
         mLastView = mCurView;
-        sendAppear();
+        post(new Runnable() {
+            @Override
+            public void run() {
+                sendAppear();
+            }
+        });
+
 
     }
 

@@ -140,10 +140,10 @@ public class MultiTextFragment extends BaseFragment {
     @Override
     public void onDestroyView() {
         super.onDestroyView();
-        mMvMultiText.removeAllViews();
-        mMvMultiText2.removeAllViews();
-        mMvMultiText3.removeAllViews();
-        mMvMultiText4.removeAllViews();
-        mMvMultiText5.removeAllViews();
+//        mMvMultiText.removeAllViews();
+//        mMvMultiText2.removeAllViews();
+//        mMvMultiText3.removeAllViews();
+//        mMvMultiText4.removeAllViews();
+//        mMvMultiText5.removeAllViews();
     }
 }
