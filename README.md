@@ -1,5 +1,10 @@
 
 
+[Android 自定义 MarqueeView 实现跑马灯效果 - 使用说明](https://blog.csdn.net/gdutxiaoxu/article/details/82389133)
+
+[Android 自定义 MarqueeView 实现跑马灯 —— 原理篇](https://blog.csdn.net/gdutxiaoxu/article/details/82429330)
+
+
 ## 前言
 
 我们知道，Android  TextView 默认支持跑马灯效果，但是不够灵活，比如不能支持设置动画执行时长，动画效果等。
@@ -46,10 +51,10 @@ gongwen | [MarqueeViewLibrary](https://github.com/gongwen/MarqueeViewLibrary) | 
 implementation 'com.xj:marqueeview:<latest-version>'
 ```
 
-目前最新的版本是 0.1.00，最新版本可以到该网址查看：[marqueeView]( https://bintray.com/xujun94/maven/marqueeView)
+目前最新的版本是 0.1.20，最新版本可以到该网址查看：[marqueeView]( https://bintray.com/xujun94/maven/marqueeView)
 
 ```
-implementation 'com.xj:marqueeview:0.1.00'
+implementation 'com.xj:marqueeview:0.1.20'
 ```
 
 
@@ -370,7 +375,8 @@ https://github.com/sunfusheng/MarqueeView
 
 [MarqueeView：https://github.com/gdutxiaoxu/MarqueeView](https://github.com/gdutxiaoxu/MarqueeView)
 
+
+
 [Android 自定义 MarqueeView 实现跑马灯效果 - 使用说明](https://blog.csdn.net/gdutxiaoxu/article/details/82389133)
 
-
-
+[Android 自定义 MarqueeView 实现跑马灯 —— 原理篇](https://blog.csdn.net/gdutxiaoxu/article/details/82429330)
