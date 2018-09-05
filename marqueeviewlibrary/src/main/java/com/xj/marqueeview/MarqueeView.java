@@ -15,7 +15,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.FrameLayout;
 
-import com.xj.marqueeview.base.ItemViewDelegate;
 import com.xj.marqueeview.base.MultiItemTypeAdapter;
 
 /**
@@ -148,7 +147,7 @@ public class MarqueeView extends FrameLayout {
             return;
         }
         mMultiItemTypeAdapter = multiItemTypeAdapter;
-//        postStart(mInAnimResId, mOutAnimResId);
+        //        postStart(mInAnimResId, mOutAnimResId);
         start(mInAnimResId, mOutAnimResId);
     }
 
@@ -203,26 +202,24 @@ public class MarqueeView extends FrameLayout {
             return;
         }
         mViews.clear();
+        SparseArrayCompat<View> allTyeView = mMultiItemTypeAdapter.getAllTyeView(MarqueeView.this);
         int curItemViewType = mMultiItemTypeAdapter.getItemViewType(mPosition);
-        SparseArrayCompat<ItemViewDelegate> itemViewDelegate = mMultiItemTypeAdapter.getItemViewDelegate();
-        int size = itemViewDelegate.size();
-        for (int i = 0; i < size; i++) {
-            ItemViewDelegate delegate = itemViewDelegate.valueAt(i);
-            View itemView = mMultiItemTypeAdapter.createItemView(delegate, MarqueeView.this);
-            int type = mMultiItemTypeAdapter.getItemViewType(itemViewDelegate, i);
-            itemView.setTag(R.id.key_marquee_view_item_type, type);
+        for (int i = 0; i < allTyeView.size(); i++) {
+            int key = allTyeView.keyAt(i);
+            View view = allTyeView.valueAt(i);
+            mViews.put(key, view);
             LayoutParams layoutParams = new FrameLayout.LayoutParams(LayoutParams.MATCH_PARENT,
                     LayoutParams.WRAP_CONTENT);
             layoutParams.gravity = mGravity;
-            addView(itemView, layoutParams);
-            mViews.put(type, itemView);
+            addView(view, layoutParams);
             // 设置当前 itemView 可见，其他不可见
-            if (type == curItemViewType) {
-                itemView.setVisibility(View.VISIBLE);
+            if (key == curItemViewType) {
+                view.setVisibility(View.VISIBLE);
             } else {
-                itemView.setVisibility(View.INVISIBLE);
+                view.setVisibility(View.INVISIBLE);
             }
         }
+
     }
 
     private View getItemView(int index) {

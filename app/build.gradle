@@ -26,6 +26,6 @@ dependencies {
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 //    implementation project(':marqueeviewlibrary')
-    implementation 'com.xj.marqueeView:marqueeView:0.1.10'
+    implementation 'com.xj.marqueeView:marqueeView:0.1.20'
     implementation "com.android.support:design:27.1.1"
 }

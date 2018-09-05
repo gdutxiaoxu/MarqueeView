@@ -2,6 +2,7 @@ package com.xj.marqueeview.base;
 
 import android.content.Context;
 import android.support.v4.util.SparseArrayCompat;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,6 +27,25 @@ public class MultiItemTypeAdapter<T> {
         mItemViewDelegateManager = new ItemViewDelegateManager();
     }
 
+    public SparseArrayCompat<View> getAllTyeView( ViewGroup parent){
+        SparseArrayCompat<ItemViewDelegate<T>> itemViewDelegates = getItemViewDelegate();
+        int size = itemViewDelegates.size();
+        SparseArrayCompat<View> viewSparseArrayCompat = new SparseArrayCompat<>();
+        for (int i = 0; i < size; i++) {
+            ItemViewDelegate delegate = itemViewDelegates.valueAt(i);
+            View itemView = createItemView(delegate, parent);
+            int itemViewType = getItemViewType(itemViewDelegates, i);
+            Log.i(TAG, "getAllTyeView: itemViewType = " + itemViewType);
+            viewSparseArrayCompat.put(itemViewType,itemView);
+        }
+        return viewSparseArrayCompat;
+
+    }
+
+    private int getItemViewType(SparseArrayCompat<ItemViewDelegate<T>> itemViewDelegates, int i) {
+        return itemViewDelegates.keyAt(i);
+    }
+
     public View createItemView(ItemViewDelegate<T> itemViewDelegate, ViewGroup parent) {
         int layoutId = itemViewDelegate.getItemViewLayoutId();
         ViewHolder viewHolder = null;
@@ -34,8 +54,6 @@ public class MultiItemTypeAdapter<T> {
         viewHolder.mLayoutId = layoutId;
         onViewHolderCreated(viewHolder, viewHolder.getConvertView());
         return convertView;
-
-
     }
 
     public View createItemView(int position, View convertView, ViewGroup parent) {
@@ -53,9 +71,7 @@ public class MultiItemTypeAdapter<T> {
             viewHolder.mPosition = position;
         }
         convert(viewHolder, getItem(position), position);
-
         return convertView;
-
     }
 
     private void convert(ViewHolder viewHolder, T item, int position) {
@@ -81,7 +97,6 @@ public class MultiItemTypeAdapter<T> {
         return mItemViewDelegateManager.getDelegates();
     }
 
-
     public MultiItemTypeAdapter addItemViewDelegate(ItemViewDelegate<T> itemViewDelegate) {
         mItemViewDelegateManager.addDelegate(itemViewDelegate);
         return this;
@@ -97,19 +112,6 @@ public class MultiItemTypeAdapter<T> {
         return 1;
     }
 
-
-    /**
-     * 该方法注意与 getItemViewType(int position) 保持一致
-     *
-     * @param viewDelegateSparseArrayCompat
-     * @param index
-     * @return
-     */
-    public int getItemViewType(SparseArrayCompat<ItemViewDelegate> viewDelegateSparseArrayCompat, int
-            index) {
-        return viewDelegateSparseArrayCompat.keyAt(index);
-
-    }
 
     public int getItemViewType(int position) {
         if (useItemViewDelegateManager()) {

@@ -65,6 +65,7 @@ public class ItemViewDelegateManager<T> {
                 position + " in data source");
     }
 
+
     public void convert(ViewHolder holder, T item, int position) {
         int delegatesCount = delegates.size();
         for (int i = 0; i < delegatesCount; i++) {
@@ -83,9 +84,6 @@ public class ItemViewDelegateManager<T> {
         return delegates.get(viewType).getItemViewLayoutId();
     }
 
-    public int getItemViewType(ItemViewDelegate itemViewDelegate) {
-        return delegates.indexOfValue(itemViewDelegate);
-    }
 
     public ItemViewDelegate getItemViewDelegate(T item, int position) {
         int delegatesCount = delegates.size();
