@@ -48,14 +48,15 @@ gongwen | [MarqueeViewLibrary](https://github.com/gongwen/MarqueeViewLibrary) | 
 
 
 ```
-implementation 'com.xj:marqueeview:marqueeview:<latest-version>'
+implementation 'com.xj:marqueeView:marqueeView:<latest-version>'
 ```
 
 目前最新的版本是 0.1.20，最新版本可以到该网址查看：[marqueeView]( https://bintray.com/xujun94/maven/marqueeView)
 
 ```
-implementation 'com.xj:marqueeview:marqueeview:0.1.20'
+ implementation 'com.xj.marqueeView:marqueeView:0.1.20'
 ```
+
 
 
 ### 第二步：在 XML 文件中使用
