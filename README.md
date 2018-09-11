@@ -48,13 +48,13 @@ gongwen | [MarqueeViewLibrary](https://github.com/gongwen/MarqueeViewLibrary) | 
 
 
 ```
-implementation 'com.xj:marqueeview:<latest-version>'
+implementation 'com.xj:marqueeview:marqueeview:<latest-version>'
 ```
 
 目前最新的版本是 0.1.20，最新版本可以到该网址查看：[marqueeView]( https://bintray.com/xujun94/maven/marqueeView)
 
 ```
-implementation 'com.xj:marqueeview:0.1.20'
+implementation 'com.xj:marqueeview:marqueeview:0.1.20'
 ```
 
 
